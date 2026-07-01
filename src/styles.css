@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #070B09;
+  --color-reactor: #101714;
+  --color-mako-deep: #1C5E42;
+  --color-mako-glow: #4FE8A8;
+  --color-mako-pale: #B6FFE2;
+  --color-foreground: #E7F3EC;
+  --color-muted: #8AA59A;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: rgba(79, 232, 168, 0.35) 0px 5px 15px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-mako-deep);
+  color: var(--color-mako-pale);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb { background: var(--color-mako-deep); border-radius: 3px; }
+
+.tag {
+  @apply bg-mako-glow/10 text-mako-glow rounded-full px-3 py-0.5 text-xs font-medium tracking-[0.03em] inline-block;
+  box-shadow: rgba(79, 232, 168, 0.08) 0px 5px 15px;
+}
+
+.project-featured {
+  @apply bg-reactor/80 rounded-xl;
+  box-shadow: rgba(79, 232, 168, 0.35) 0px 5px 15px;
+}
+
+.project-small {
+  @apply border-b border-mako-deep/25 py-4;
+}
+.project-small:last-child {
+  @apply border-b-0;
+}
+
+.social-link {
+  @apply text-muted transition-all duration-200 inline-flex hover:text-mako-glow hover:-translate-y-0.5;
+}
+
+@keyframes morgul-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+@keyframes morgul-rays {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.28; }
+}
+@keyframes morgul-mist {
+  0%, 100% { opacity: 0.12; transform: scaleX(1); }
+  50% { opacity: 0.2; transform: scaleX(1.04); }
+}
